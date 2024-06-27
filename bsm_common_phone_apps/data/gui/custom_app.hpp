@@ -1,9 +1,3 @@
-
-
-
-
-
-
 class BSM_TestAppProject : BSM_DT_Tablet_BASE {
 	idd = -1; // idd should be unique, usually should not use it... all behavior should be done through events
 	// onLoad="[(_this # 0)] spawn BrokenSkullMods_fnc_chestPhoneHomeScreenOnLoad";
@@ -19,8 +13,7 @@ class BSM_TestAppProject : BSM_DT_Tablet_BASE {
 			// action = "[(_this # 0)] call BrokenSkullMods_fnc_chestPhoneHomeScreenDown;";
 		};
 		class Button_Exit_Base : Button_Exit_Base { };
-        class RscStructuredText_1100: RscStructuredText
-        {
+        class RscStructuredText_1100: RscStructuredText {
             idc = 1100;
             text = "This is a Test App";
             x = 0.304062 * safezoneW + safezoneX;
@@ -28,7 +21,6 @@ class BSM_TestAppProject : BSM_DT_Tablet_BASE {
             w = 0.154687 * safezoneW;
             h = 0.22 * safezoneH;
         };
-
 	};
 };
 

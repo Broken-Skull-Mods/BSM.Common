@@ -1,6 +1,7 @@
 
 // PREFIX = bsm_chest_phone
 #include "\bsm_chest_phone\data\gui\defines.hpp"
+#include "\bsm_chest_phone\data\gui\Tablet_Base.hpp"
 #include "\bsm_chest_phone\data\gui\Tablet.hpp"
 
 class CfgPatches
@@ -9,7 +10,10 @@ class CfgPatches
 	{
 		author = "Broken Skull Mods™";
 		name = "Broken Skull Mods™ - Chest Phone";
-		version="1";
+		units[]={ };
+		weapons[]={};
+		requiredVersion=0.1;
+		requiredAddons[]={ };
 	};
 };
 class CfgFunctions {

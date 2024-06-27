@@ -34,6 +34,7 @@ class BSM_Polyliner_Tool : BSM_DT_Tablet_BASE {
             w = 0.154687 * safezoneW;
             h = 0.22 * safezoneH;
         };
+        
         class RscStructuredText_1101: RscStructuredText
         {
             idc = 1101;
@@ -43,6 +44,7 @@ class BSM_Polyliner_Tool : BSM_DT_Tablet_BASE {
             w = 0.144375 * safezoneW;
             h = 0.12 * safezoneH;
         };
+
         class RscStructuredText_1102: RscStructuredText
         {
             idc = 1102;
