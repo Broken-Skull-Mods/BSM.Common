@@ -11,7 +11,7 @@ The polyline tool allows you to save drawings/lines on the map as code so you do
 1. Execute (```Exec Local```) the following code: 
 
 [--HighlightCode(Language="sqf")--]
-    [] call BrokenSkullMods_fnc_generatePolylines;
+[] call BrokenSkullMods_fnc_generatePolylines;
 [--/HighlightCode--]
 
 Once confirmation code ```OK (XXXX)!```,
