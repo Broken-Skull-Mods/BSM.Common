@@ -9,9 +9,11 @@ The polyline tool allows you to save drawings/lines on the map as code so you do
 1. Start drawing using <code>CTRL + LMB</code>.
 1. Once drawing is completed, close the map and press <code>ESC</code>.
 1. Execute (```Exec Local```) the following code: 
-```
+
+[--HighlightCode(Language="sqf")--]
     [] call BrokenSkullMods_fnc_generatePolylines;
-```
+[--/HighlightCode--]
+
 Once confirmation code ```OK (XXXX)!```,
 
 Return to the editor, by now the code to draw the lines is stored in your memory.
