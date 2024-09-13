@@ -1,0 +1,75 @@
+## Registering Application
+We provide a very simple easy and fast way to register an app into our phone.
+
+## Registering without GUI
+It is possible to register an app without having a GUI app! it's essential a buton with a specific function.
+
+It should be noted that the code can be anything and will be spawn and not call to avoid blocking codes.
+
+Also, it is important to note that if the code will not automatically close the app and this should be done by using the follow function.
+
+[--HighlightCode(Language="sqf")--]call SpecOps_fnc_chestPhoneExit;[--/HighlightCode--]
+
+### Example 1
+Simply print a hint message and closing the phone.
+
+[--HighlightCode(Language="sqf")--]["Test App", "\bsm_chest_phone\data\icons\App_Icon_Debug.paa", { hint "For Debugging!!!"; call SpecOps_fnc_chestPhoneExit }] call SpecOps_fnc_chestPhoneRegisterApp;[--/HighlightCode--]
+
+### Example 2
+This example we will exit the phone, ==wait few ms due to close process== and open ACE self medical menu using an app shortcut.
+
+[--HighlightCode(Language="sqf")--]["ACE Medical", "\bsm_chest_phone\data\icons\App_Icon_Debug.paa", { call SpecOps_fnc_chestPhoneExit; sleep 0.2; [player] call ace_medical_gui_fnc_openMenu; }] call SpecOps_fnc_chestPhoneRegisterApp;[--/HighlightCode--]
+
+## Registering an App with GUI
+### Example 1
+This example will be the use case when you create an application for the phone, screen on top.
+
+In this example, to following registers a app icon and to instruction is to open home screen again.
+
+However, when clicking on home button on the right, after opening the application, you will see nothing happens because the phone has returned to the previous screen which is the same screen but, it requires 2 click on home for the application to fully close.
+
+You can also close all opened applications by click the arrow button at the bottom of the phone in the center screen.
+
+[--HighlightCode(Language="sqf")--]["Test App", "\bsm_chest_phone\data\icons\App_Icon_Settings.paa", "BSM_DT_Tablet_Home"] call SpecOps_fnc_chestPhoneRegisterApp; [--/HighlightCode--]
+
+## Registering Application as a Mod
+In the ``config.cpp`` of the mod,
+
+You will create a class as so:
+[--HighlightCode(Language="cpp")--]class bsm_chest_phone_dt {
+};[--/HighlightCode--]
+
+within that class, you will create as many classes as you have apps to register! it is very important to have a PREFIX to avoid conflict with other mods and ours is ``BSM`` and for this example it is gonna be ``EXPL``.
+
+[--HighlightCode(Language="cpp")--]class bsm_chest_phone_dt {
+	class EXPL_test_no_gui {
+		name = "Test App (No GUI)";
+		icon = "\bsm_chest_phone\data\icons\App_Icon_Settings.paa";
+		code = "hint 'Test OK !';";
+	};
+	class EXPL_test_gui {
+		name = "Test App (No GUI)";
+		icon = "\bsm_chest_phone\data\icons\App_Icon_Settings.paa";
+		dialog = "BSM_DT_Tablet_Home";
+	};
+};[--/HighlightCode--]
+
+Compile you addon and load it up in arma and your apps will be available in to home page of the phone!
+
+``EXPL_test_no_gui`` is an App without registered GUI, printing a hint text without closing the phone.
+
+``EXPL_test_gui`` is an App with a registered GUI, it opens the same phone page a second time;
+
+As you can see it's very easy and simple with limited code writing to achieve the registration of an APP.
+
+## Closing Process
+
+[--HighlightCode(Language="sqf")--]call SpecOps_fnc_chestPhoneExit;[--/HighlightCode--]
+
+Internally this function is executed as a spawn to avoid blocking UI or crashes! it closes every dialogs (all app pages that could be opened).
+
+Therefore, it is very important to add a delay of 0.2 to 0.5ms when closing app and opening another GUI, any GUI otherwise the closing process will affect the next dialog and the GUI will close before being opened.
+
+## Opening Phone with Code
+
+[--HighlightCode(Language="sqf")--]call SpecOps_fnc_chestPhoneHomeScreenOpen;[--/HighlightCode--]
